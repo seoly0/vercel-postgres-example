@@ -1,14 +1,20 @@
-# retrieve list paginated
+### retrieve list paginated
+```
 curl -X GET https://vercel-postgres-example-sable.vercel.app/users?page=1
-
-# retrieve one
+```
+### retrieve one
+```
 curl -X GET https://vercel-postgres-example-sable.vercel.app/user/:userId
-
-# create
+```
+### create
+```
 curl -X POST https://vercel-postgres-example-sable.vercel.app/user --header "Content-Type: application/json" --data "{\"name\": \"test_user\", \"email\": \"test@example.com\"}"
-
-# update
+```
+### update
+```
 curl -X PATCH https://vercel-postgres-example-sable.vercel.app/user/:userId --header "Content-Type: application/json" --data "{\"name\": \"changed_name\", \"email\": \"changed@example.com\"}"
-
-# delete
+```
+### delete
+```
 curl -X DELETE  https://vercel-postgres-example-sable.vercel.app/user/:userId
+```
