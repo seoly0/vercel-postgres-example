@@ -11,8 +11,12 @@ sql.connect().then(() => {
 app.get('/', (req, res) => res.send('Vercel Express Postgres CRUD example'))
 
 app.get('/users', async (req, res) => {
-  
-  const result = await sql`SELECT * FROM users`
+
+  const page = req.params.page ?? 1
+  const size = req.params.size ?? 10
+  const offset = (page - 1) * size
+
+  const result = await sql`SELECT * FROM users ORDER BY id desc OFFSET ${offset} LIMIT ${size}`
 
   res.json({
     success: true,
